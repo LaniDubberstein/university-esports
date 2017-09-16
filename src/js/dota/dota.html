@@ -1,113 +1,113 @@
 <div class="home-page dark-image">
-
-  <header class="intro-header banner-image">
-    <div class="container jumbo-container">
-      <h1>DOTA</h1>
-    </div>
-  </header>
-
-  <section ng-if="$ctrl.about != null">
-    <div class="container info-container">
-      <div class="row" style="padding: 0 40px">
-        <h2>About</h2>
-        <div class="lead">{{ $ctrl.about }}</div>
+  
+    <header class="intro-header banner-image">
+      <div class="container jumbo-container">
+        <h1>{{ $ctrl.gameTitle }}</h1>
       </div>
-    </div>
-    <!-- /.container -->
-  </section>
-
-  <section ng-if="$ctrl.aboutCompetitive != null">
-    <div class="container info-container dark">
-      <div class="row" style="padding: 0 40px">
-        <h2>Competitive Teams</h2>
-        <div class="lead">{{ $ctrl.aboutCompetitive }}</div>
-      </div>
-    </div>
-    <!-- /.container -->
-  </section>
-
-  <!-- Page Content -->
-  <section ng-if="$ctrl.teams != null">
-    <div class="container info-container text-center">
-      <div ng-repeat="team in $ctrl.teams">
-        <h2>{{ team.label }}<br>
-          <small>{{ team.description }}</small>
-        </h2>
-        <div class="row bot-buffer">
-          <div class="col-md-5 mr-auto"></div>
-          <div ng-repeat="coach in team.coaches">
-            <div class="col-md-2 col-xs-4 mr-auto">
-              <img class="img-circle img-responsive img-center" src="{{ coach.imgPath }}" alt="">
-              <h3>{{ coach.name }}<br>
-                <small>{{ coach.role }}</small>
-              </h3>
-            </div>
-          </div>
-          <div class="col-md-5 mr-auto"></div>
-        </div>
-        <div class="row bot-buffer">
-          <div ng-if="6 > team.teammates.length" class="col-md-1 mr-auto"></div>
-          <div ng-if="4 > team.teammates.length" class="col-md-2 mr-auto"></div>
-          <div ng-repeat="teammate in team.teammates">
-            <div class="col-md-2 col-xs-4 mr-auto">
-              <img class="img-circle img-responsive img-center" src="{{ teammate.imgPath }}" alt="">
-              <h3>{{ teammate.name }}<br>
-                <small>{{ teammate.role }}</small>
-              </h3>
-            </div>
-          </div>
-          <div ng-if="4 > team.teammates.length" class="col-md-2 mr-auto"></div>
-          <div ng-if="6 > team.teammates.length" class="col-md-1 mr-auto"></div>
+    </header>
+  
+    <section ng-if="$ctrl.about != null">
+      <div class="container info-container">
+        <div class="row" style="padding: 0 40px">
+          <h2>About</h2>
+          <div class="lead">{{ $ctrl.about }}</div>
         </div>
       </div>
-    </div>
-    <!-- /.container -->
-  </section>
-
-  <section ng-if="$ctrl.events != null">
-    <div class="container info-container dark">
-      <h2>Upcoming Events</h2>
-      <div class="row">
-        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-          <ul class="event-list">
-            <li ng-repeat="event in $ctrl.events">
-              <div class="time">
-                <p>{{ event.date }}</p>
-                <p>{{ event.time }}</p>
-                <p>{{ event.location }}</p>
+      <!-- /.container -->
+    </section>
+  
+    <section ng-if="$ctrl.aboutCompetitive != null">
+      <div class="container info-container dark">
+        <div class="row" style="padding: 0 40px">
+          <h2>Competitive Teams</h2>
+          <div class="lead">{{ $ctrl.aboutCompetitive }}</div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </section>
+  
+    <!-- Page Content -->
+    <section ng-if="$ctrl.teams != null">
+      <div class="container info-container text-center">
+        <div ng-repeat="team in $ctrl.teams">
+          <h2>{{ team.label }}<br>
+            <small>{{ team.description }}</small>
+          </h2>
+          <div class="row bot-buffer">
+            <div class="col-md-5 mr-auto"></div>
+            <div ng-repeat="coach in team.coaches">
+              <div class="col-md-2 col-xs-4 mr-auto">
+                <img class="img-circle img-responsive img-center" src="{{ coach.imgPath }}" alt="">
+                <h3>{{ coach.name }}<br>
+                  <small>{{ coach.role }}</small>
+                </h3>
               </div>
-              <img alt="img" ng-src="{{ event.imgPath }}" />
-              <div class="info">
-                <h2 class="title">{{ event.label }}</h2>
-                <p class="desc">{{ event.description }}</p>
-                <ul>
-                  <li style="width:33%;">Sign Up <span class="fa fa-envelope"></span></li>
-                </ul>
+            </div>
+            <div class="col-md-5 mr-auto"></div>
+          </div>
+          <div class="row bot-buffer">
+            <div ng-if="6 > team.teammates.length" class="col-md-1 mr-auto"></div>
+            <div ng-if="4 > team.teammates.length" class="col-md-2 mr-auto"></div>
+            <div ng-repeat="teammate in team.teammates">
+              <div class="col-md-2 col-xs-4 mr-auto">
+                <img class="img-circle img-responsive img-center" src="{{ teammate.imgPath }}" alt="">
+                <h3>{{ teammate.name }}<br>
+                  <small>{{ teammate.role }}</small>
+                </h3>
               </div>
-            </li>
-          </ul>
+            </div>
+            <div ng-if="4 > team.teammates.length" class="col-md-2 mr-auto"></div>
+            <div ng-if="6 > team.teammates.length" class="col-md-1 mr-auto"></div>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- /.container -->
-  </section>
-
-  <section ng-if="$ctrl.news != null">
-    <div class="container info-container">
-      <h2>News</h2>
-      <div class="row">
-        <div ng-repeat="news in $ctrl.news" class="col-md-4 ml-auto">
-          <div class="row">
-            <div class="col-md-12 col-sm-4 col-xs-4 ml-auto bot-buffer">
-              <img style="max-width: 100%;" ng-src="{{ news.imgPath }}">
-            </div>
-            <div class="col-md-12 col-sm-8 col-xs-8 ml-auto">
-              <p class="lead">{{ news.description }}</p>
+      <!-- /.container -->
+    </section>
+  
+    <section>
+      <div class="container info-container dark">
+        <h2>Upcoming Events</h2>
+        <div class="row">
+          <div class="[ col-xs-12 col-sm-offset-1 col-sm-10 ]">
+            <ul class="event-list">
+              <li ng-repeat="event in $ctrl.schedule.eventsFilteredByGame($ctrl.game)">
+                <div class="time">
+                  <p><b>{{ $ctrl.schedule.monthNames[event.date.getMonth()] }} {{ event.date.getDate()}}</b></p>
+                  <p>{{ event.time }}</p>
+                  <p>{{ event.location }}</p>
+                </div>
+                <img alt="img" ng-src="{{ event.imgPath }}" />
+                <div class="info">
+                  <h2 class="title">{{ event.label }}</h2>
+                  <p class="desc">{{ event.description }}</p>
+                  <ul ng-if="event.signupLink != ''">
+                    <li style="width:33%;">Sign Up <span class="fa fa-envelope"></span></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </section>
+  
+    <section ng-if="$ctrl.news != null">
+      <div class="container info-container">
+        <h2>News</h2>
+        <div class="row">
+          <div ng-repeat="news in $ctrl.news" class="col-md-4 ml-auto">
+            <div class="row">
+              <div class="col-md-12 col-sm-4 col-xs-4 ml-auto bot-buffer">
+                <img style="max-width: 100%;" ng-src="{{ news.imgPath }}">
+              </div>
+              <div class="col-md-12 col-sm-8 col-xs-8 ml-auto">
+                <p class="lead">{{ news.description }}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-</div>
+    </section>
+  
+  </div>

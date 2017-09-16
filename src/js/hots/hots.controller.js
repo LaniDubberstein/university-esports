@@ -1,14 +1,13 @@
 class HotsCtrl {
-  constructor(User, Tags, AppConstants, $scope) {
+  constructor(Schedule, AppConstants, $scope) {
     'ngInject';
 
+    this.schedule = Schedule;
     this.appName = AppConstants.appName;
     this._$scope = $scope;
-
-    // Set current list to either feed or all, depending on auth status.
-    this.listConfig = {
-      type: User.current ? 'feed' : 'all'
-    };
+    
+    this.gameTitle = "HEROES OF THE STORM";
+    this.game = "hots";
 
     // this.about = "Hots club information.  Hots club information.  Hots club information.  Hots club information.  Hots club information. "
     //   + "Hots club information.  Hots club information.  Hots club information.  Hots club information.  Hots club information."
@@ -61,27 +60,6 @@ class HotsCtrl {
       }
     ]
 
-    this.events = [
-      {
-        "label": "HOTS Tryouts",
-        "date": "Sept 7 2017",
-        "time": "",
-        "location": "Coffman Memorial Union rm 324",
-        "imgPath": "images/hots_logo.png",
-        "description": "Heroes of the Storm competitive team tryouts.",
-        "signupLink": "link"
-      },
-      {
-        "label": "HOTS Randomized Teams Event",
-        "date": "Oct 5 2017",
-        "time": "",
-        "location": "offman Memorial Union rm 324",
-        "imgPath": "images/hots_logo.png",
-        "description": "Heroes of the STorm Randomized Teams Event.",
-        "signupLink": "link"
-      }
-    ]
-
     // this.news = [
     //   {
     //     "description": "Description of [Hots] news. News news news news news news news news news news news.",
@@ -96,7 +74,6 @@ class HotsCtrl {
     //     "imgPath": "images/dota_stage.jpg"
     //   }
     // ]
-
   }
 
   changeList(newList) {

@@ -1,14 +1,13 @@
 class RlCtrl {
-  constructor(User, Tags, AppConstants, $scope) {
+  constructor(Schedule, AppConstants, $scope) {
     'ngInject';
 
+    this.schedule = Schedule;
     this.appName = AppConstants.appName;
     this._$scope = $scope;
-
-    // Set current list to either feed or all, depending on auth status.
-    this.listConfig = {
-      type: User.current ? 'feed' : 'all'
-    };
+    
+    this.gameTitle = "ROCKET LEAGUE";
+    this.game = "rl";
 
     // this.about = "Rl club information.  Rl club information.  Rl club information.  Rl club information.  Rl club information. "
     //   + "Rl club information.  Rl club information.  Rl club information.  Rl club information.  Rl club information."
@@ -51,18 +50,6 @@ class RlCtrl {
       }
     ]
 
-    this.events = [
-      {
-        "label": "Rocket League",
-        "date": "Nov 30 2017",
-        "time": "",
-        "location": "Coffman Memorial Union rm 324",
-        "imgPath": "images/rl_logo.jpg",
-        "description": "",
-        "signupLink": ""
-       }
-    ]
-
     // this.news = [
     //   {
     //     "description": "Description of [Rl] news. News news news news news news news news news news news.",
@@ -79,11 +66,6 @@ class RlCtrl {
     // ]
 
   }
-
-  changeList(newList) {
-    this._$scope.$broadcast('setListTo', newList);
-  }
-
 }
 
 export default RlCtrl;

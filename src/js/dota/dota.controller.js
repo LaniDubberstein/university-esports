@@ -1,14 +1,13 @@
 class DotaCtrl {
-  constructor(User, Tags, AppConstants, $scope) {
+  constructor(Schedule, AppConstants, $scope) {
     'ngInject';
 
+    this.schedule = Schedule;
     this.appName = AppConstants.appName;
     this._$scope = $scope;
 
-    // Set current list to either feed or all, depending on auth status.
-    this.listConfig = {
-      type: User.current ? 'feed' : 'all'
-    };
+    this.gameTitle = "DOTA";
+    this.game = "dota";
 
     // this.about = "Dota club information.  Dota club information.  Dota club information.  Dota club information.  Dota club information. "
     //   + "Dota club information.  Dota club information.  Dota club information.  Dota club information.  Dota club information."
@@ -58,45 +57,6 @@ class DotaCtrl {
             "imgPath": "http://placehold.it/200x200"
           }
         ]
-      }
-    ]
-
-    this.events = [
-      {
-        "label": "Cool event!",
-        "date": "Dec 1 2017",
-        "time": "10:00am - 10:00pm",
-        "location": "Bruininks 420a",
-        "imgPath": "images/dota_logo.png",
-        "description": "Really cool [Dota] event!!!",
-        "signupLink": "link"
-      },
-      {
-        "label": "Cool event!",
-        "date": "Dec 26 2017",
-        "time": "10:00am - 10:00pm",
-        "location": "Bruininks 420a",
-        "imgPath": "images/dota_logo.png",
-        "description": "Really cool [Dota] event!!!",
-        "signupLink": "link"
-      },
-      {
-        "label": "Cool event!",
-        "date": "May 11 2018",
-        "time": "10:00am - 10:00pm",
-        "location": "Bruininks 420a",
-        "imgPath": "images/dota_logo.png",
-        "description": "Really cool [Dota] event!!!",
-        "signupLink": "link"
-      },
-      {
-        "label": "Cool event!",
-        "date": "Jul 4 2018",
-        "time": "10:00am - 10:00pm",
-        "location": "Bruininks 420a",
-        "imgPath": "images/dota_logo.png",
-        "description": "Really cool [Dota] event!!!",
-        "signupLink": "link"
       }
     ]
 

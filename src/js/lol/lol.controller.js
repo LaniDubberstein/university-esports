@@ -1,14 +1,13 @@
 class LolCtrl {
-  constructor(User, Tags, AppConstants, $scope) {
+  constructor(Schedule, AppConstants, $scope) {
     'ngInject';
 
+    this.schedule = Schedule;
     this.appName = AppConstants.appName;
     this._$scope = $scope;
-
-    // Set current list to either feed or all, depending on auth status.
-    this.listConfig = {
-      type: User.current ? 'feed' : 'all'
-    };
+    
+    this.gameTitle = "LEAGUE OF LEGENDS";
+    this.game = "lol";
 
     // this.about = "Lol club information.  Lol club information.  Lol club information.  Lol club information.  Lol club information. "
     //   + "Lol club information.  Lol club information.  Lol club information.  Lol club information.  Lol club information."

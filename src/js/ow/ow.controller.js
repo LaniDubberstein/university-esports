@@ -1,14 +1,13 @@
 class OwCtrl {
-  constructor(User, Tags, AppConstants, $scope) {
+  constructor(Schedule, AppConstants, $scope) {
     'ngInject';
 
+    this.schedule = Schedule;
     this.appName = AppConstants.appName;
     this._$scope = $scope;
 
-    // Set current list to either feed or all, depending on auth status.
-    this.listConfig = {
-      type: User.current ? 'feed' : 'all'
-    };
+    this.gameTitle = "OVERWATCH";
+    this.game = "ow";
 
     // this.about = "Ow club information.  Ow club information.  Ow club information.  Ow club information.  Ow club information. "
     //   + "Ow club information.  Ow club information.  Ow club information.  Ow club information.  Ow club information."
@@ -64,18 +63,6 @@ class OwCtrl {
           }
         ]
       }
-    ]
-
-    this.events = [
-      {
-        "label": "Overwatch",
-        "date": "Nov 16 2017",
-        "time": "",
-        "location": "Cofman Memorial Union rm 324",
-        "imgPath": "images/ow_logo.png",
-        "description": "",
-        "signupLink": ""
-       }
     ]
 
     // this.news = [

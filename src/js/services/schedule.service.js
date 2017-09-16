@@ -2,13 +2,21 @@ export default class Schedule {
     constructor() {
         'ngInject';
 
-        var dota = "dota";
-        var hs = "hs";
-        var hots = "hots";
-        var lol = "lol";
-        var ow = "ow";
-        var rl = "rl";
-        var other = "other";
+        var DOTA = "dota";
+        var HS = "hs";
+        var HOTS = "hots";
+        var LOL = "lol";
+        var OW = "ow";
+        var RL = "rl";
+        var OTHER = "other";
+
+        var DOTA_LOGO = "images/dota_logo.png";
+        var HS_LOGO = "images/hs_logo.png";
+        var HOTS_LOGO = "images/hots_logo.png";
+        var LOL_LOGO = "images/lol_logo.png";
+        var OW_LOGO = "images/ow_logo.png";
+        var RL_LOGO = "images/rl_logo.jpg";
+        var OTHER_LOGO = "images/power.jpg";
 
         this.monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"];
@@ -18,7 +26,7 @@ export default class Schedule {
         // - Games will only be displayed on the page with the proper game labels.
         this.events = [
             {
-                "game": hots,
+                "game": HOTS,
                 "label": "HOTS Tryouts",
                 "date": new Date(2017, 8, 7),
                 "time": "",
@@ -28,7 +36,7 @@ export default class Schedule {
                 "signupLink": ""
             },
             {
-                "game": hs,
+                "game": HS,
                 "label": "Hearthstone Tryouts",
                 "date": new Date(2017, 8, 16),
                 "time": "",
@@ -38,7 +46,7 @@ export default class Schedule {
                 "signupLink": ""
             },
             {
-                "game": hs,
+                "game": HS,
                 "label": "Hearthstone Sealed Event",
                 "date": new Date(2017, 8, 21),
                 "time": "",
@@ -48,7 +56,7 @@ export default class Schedule {
                 "signupLink": ""
             },
             {
-                "game": hots,
+                "game": HOTS,
                 "label": "HOTS Randomized Teams Event",
                 "date": new Date(2017, 9, 5),
                 "time": "",
@@ -58,7 +66,7 @@ export default class Schedule {
                 "signupLink": ""
             },
             {
-                "game": other,
+                "game": OTHER,
                 "label": "Paint the Bridge",
                 "date": new Date(2017, 9, 5),
                 "time": "",
@@ -68,7 +76,7 @@ export default class Schedule {
                 "signupLink": ""
             },
             {
-                "game": hs,
+                "game": HS,
                 "label": "Hearthstone Wild Tournament",
                 "date": new Date(2017, 9, 19),
                 "time": "",
@@ -78,7 +86,7 @@ export default class Schedule {
                 "signupLink": ""
             },
             {
-                "game": other,
+                "game": OTHER,
                 "label": "NBA 2K and/or Madden",
                 "date": new Date(2017, 10, 2),
                 "time": "",
@@ -88,7 +96,7 @@ export default class Schedule {
                 "signupLink": ""
             },
             {
-                "game": ow,
+                "game": OW,
                 "label": "Overwatch",
                 "date": new Date(2017, 10, 16),
                 "time": "",
@@ -98,7 +106,7 @@ export default class Schedule {
                 "signupLink": ""
             },
             {
-                "game": rl,
+                "game": RL,
                 "label": "Rocket League",
                 "date": new Date(2017, 10, 30),
                 "time": "",
@@ -108,7 +116,7 @@ export default class Schedule {
                 "signupLink": ""
             },
             {
-                "game": hs,
+                "game": HS,
                 "label": "Hearthstone Standard Tournament",
                 "date": new Date(2017, 11, 14),
                 "time": "",
@@ -119,15 +127,12 @@ export default class Schedule {
             }
         ]
 
-        this.eventsFilteredByDate = function() {
+        this.eventsFiltered = function (game = "") {
             var today = new Date();
             var yesterday = new Date(today);
             yesterday.setDate(today.getDate() - 1);
-            return this.events.filter(event => event.date > yesterday);
-        }
-
-        this.eventsFilteredByGame = function(game) {
-            return this.events.filter(event => event.game === game);
+            return game === "" ? this.events.filter(event => event.date > yesterday) :
+                this.events.filter(event => event.game === game && event.date > yesterday);
         }
     }
 }

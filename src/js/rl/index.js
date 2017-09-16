@@ -7,7 +7,6 @@ let rlModule = angular.module('app.rl', []);
 import RlConfig from './rl.config';
 rlModule.config(RlConfig);
 
-
 // Controllers
 import RlCtrl from './rl.controller';
 rlModule.controller('RlCtrl', RlCtrl);

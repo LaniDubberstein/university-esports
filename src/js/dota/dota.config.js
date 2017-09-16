@@ -6,7 +6,7 @@ function DotaConfig($stateProvider) {
     url: '/',
     controller: 'DotaCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'dota/dota.html',
+    templateUrl: 'game.html',
     title: 'Dota'
   });
 

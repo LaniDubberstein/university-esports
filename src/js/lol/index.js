@@ -7,7 +7,6 @@ let lolModule = angular.module('app.lol', []);
 import LolConfig from './lol.config';
 lolModule.config(LolConfig);
 
-
 // Controllers
 import LolCtrl from './lol.controller';
 lolModule.controller('LolCtrl', LolCtrl);

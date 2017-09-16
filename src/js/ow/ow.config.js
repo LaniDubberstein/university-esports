@@ -6,7 +6,7 @@ function OwConfig($stateProvider) {
     url: '/',
     controller: 'OwCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'ow/ow.html',
+    templateUrl: 'game.html',
     title: 'Ow'
   });
 

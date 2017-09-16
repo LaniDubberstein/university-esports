@@ -12,5 +12,4 @@ dotaModule.config(DotaConfig);
 import DotaCtrl from './dota.controller';
 dotaModule.controller('DotaCtrl', DotaCtrl);
 
-
 export default dotaModule;

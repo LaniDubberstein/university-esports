@@ -6,7 +6,7 @@ function LolConfig($stateProvider) {
     url: '/',
     controller: 'LolCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'lol/lol.html',
+    templateUrl: 'game.html',
     title: 'Lol'
   });
 

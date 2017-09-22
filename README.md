@@ -14,4 +14,3 @@ View a live demo at https://lanidubberstein.github.io/university-esports/
 5. `npm install`
 6. Navigate into `.publish` folder and do command `init` to create .git file
 7. Navigate back into `university-esports` folder
-8. To publish changes, do command `gulp-deploy`

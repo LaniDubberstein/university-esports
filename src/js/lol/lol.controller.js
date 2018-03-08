@@ -1,37 +1,25 @@
 class LolCtrl {
-  constructor(Schedule, AppConstants, $scope) {
+  constructor(User, Tags, AppConstants, $scope) {
     'ngInject';
 
-    this.schedule = Schedule;
     this.appName = AppConstants.appName;
     this._$scope = $scope;
-    
-    this.gameTitle = "LEAGUE OF LEGENDS";
-    this.game = "lol";
 
-    // =======================================================================
-    // ==   BELOW IS INFORMATION YOU CAN EDIT                               ==
-    // ==   SECTIONS THAT ARE COMMENTED OUT WILL NOT SHOW UP ON THE PAGE    ==
-    // =======================================================================
+    // Set current list to either feed or all, depending on auth status.
+    this.listConfig = {
+      type: User.current ? 'feed' : 'all'
+    };
 
-    /* SOCIAL MEDIA */
-    // this.website = "https://gopherlink.umn.edu/organization/udota";
-    // this.facebook = "http://www.facebook.com";
-    // this.email = "mailto:example@gmail.com";
-
-    /* ABOUT SECTION */
     // this.about = "Lol club information.  Lol club information.  Lol club information.  Lol club information.  Lol club information. "
     //   + "Lol club information.  Lol club information.  Lol club information.  Lol club information.  Lol club information."
     //   + "Lol club information.  Lol club information.  Lol club information.  Lol club information.  Lol club information."
     //   + "Lol club information.  Lol club information.  Lol club information.  Lol club information.  Lol club information."
 
-    /* ABOUT COMPETITIVE TEAMS SECTION */
     // this.aboutCompetitive = "Lol club competitive team information. Lol club competitive team information. Lol club competitive team information."
     //   + "Lol club competitive team information. Lol club competitive team information. Lol club competitive team information."
     //   + "Lol club competitive team information. Lol club competitive team information. Lol club competitive team information."
     //   + "Lol club competitive team information. Lol club competitive team information. Lol club competitive team information."
 
-    /* TEAMS SECTION */
     this.teams = [
       {
         "label": "League of Legends Competitive Team",
@@ -127,60 +115,12 @@ class LolCtrl {
     //   }
     // ]
 
-    /* OFFICERS SECTION */
-    // this.officers = [
-    //   {
-    //     "label": "Dota Club Officers",
-    //     "teammates": [
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       }
-    //     ]
-    //   }
-    // ]
-
-    /* SPONSORS SECTION */
-    // this.sponsors = [
-    //   {
-    //     "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/Riot_Games_logo.png",
-    //     "link": "https://www.riotgames.com/"
-    //   },
-    //   {
-    //     "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/Riot_Games_logo.png",
-    //     "link": "https://www.riotgames.com/"
-    //   },      {
-    //     "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/Riot_Games_logo.png",
-    //     "link": "https://www.riotgames.com/"
-    //   }
-    // ]
   }
+
+  changeList(newList) {
+    this._$scope.$broadcast('setListTo', newList);
+  }
+
 }
 
 export default LolCtrl;

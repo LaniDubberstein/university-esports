@@ -1,37 +1,25 @@
 class RlCtrl {
-  constructor(Schedule, AppConstants, $scope) {
+  constructor(User, Tags, AppConstants, $scope) {
     'ngInject';
 
-    this.schedule = Schedule;
     this.appName = AppConstants.appName;
     this._$scope = $scope;
-    
-    this.gameTitle = "ROCKET LEAGUE";
-    this.game = "rl";
 
-    // =======================================================================
-    // ==   BELOW IS INFORMATION YOU CAN EDIT                               ==
-    // ==   SECTIONS THAT ARE COMMENTED OUT WILL NOT SHOW UP ON THE PAGE    ==
-    // =======================================================================
+    // Set current list to either feed or all, depending on auth status.
+    this.listConfig = {
+      type: User.current ? 'feed' : 'all'
+    };
 
-    /* SOCIAL MEDIA */
-    // this.website = "https://gopherlink.umn.edu/organization/udota";
-    // this.facebook = "http://www.facebook.com";
-    // this.email = "mailto:example@gmail.com";
-
-    /* ABOUT SECTION */
     // this.about = "Rl club information.  Rl club information.  Rl club information.  Rl club information.  Rl club information. "
     //   + "Rl club information.  Rl club information.  Rl club information.  Rl club information.  Rl club information."
     //   + "Rl club information.  Rl club information.  Rl club information.  Rl club information.  Rl club information."
     //   + "Rl club information.  Rl club information.  Rl club information.  Rl club information.  Rl club information."
 
-    /* ABOUT COMPETITIVE TEAMS SECTION */
     // this.aboutCompetitive = "Rl club competitive team information. Rl club competitive team information. Rl club competitive team information."
     //   + "Rl club competitive team information. Rl club competitive team information. Rl club competitive team information."
     //   + "Rl club competitive team information. Rl club competitive team information. Rl club competitive team information."
     //   + "Rl club competitive team information. Rl club competitive team information. Rl club competitive team information."
 
-    /* TEAMS SECTION */
     this.teams = [
       {
         "label": "Rocket League Competitive Team",
@@ -63,7 +51,18 @@ class RlCtrl {
       }
     ]
 
-    /* NEWS SECTION */
+    this.events = [
+      {
+        "label": "Rocket League",
+        "date": "Nov 30 2017",
+        "time": "",
+        "location": "Coffman Memorial Union rm 324",
+        "imgPath": "images/rl_logo.jpg",
+        "description": "",
+        "signupLink": ""
+       }
+    ]
+
     // this.news = [
     //   {
     //     "description": "Description of [Rl] news. News news news news news news news news news news news.",
@@ -79,60 +78,12 @@ class RlCtrl {
     //   }
     // ]
 
-    /* OFFICERS SECTION */
-    // this.officers = [
-    //   {
-    //     "label": "Dota Club Officers",
-    //     "teammates": [
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       }
-    //     ]
-    //   }
-    // ]
-
-    /* SPONSORS SECTION */
-    this.sponsors = [
-      {
-        "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/Riot_Games_logo.png",
-        "link": "https://www.riotgames.com/"
-      },
-      {
-        "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/Riot_Games_logo.png",
-        "link": "https://www.riotgames.com/"
-      },      {
-        "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/Riot_Games_logo.png",
-        "link": "https://www.riotgames.com/"
-      }
-    ]
   }
+
+  changeList(newList) {
+    this._$scope.$broadcast('setListTo', newList);
+  }
+
 }
 
 export default RlCtrl;

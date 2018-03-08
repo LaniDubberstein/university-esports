@@ -4,19 +4,14 @@ body {
 
 footer {
     color: white;
-    background-color: #1e1e1e;
+    background-color: #020000;
     padding: 40px;
 }
 
-footer a {
-    display: inline-block;
-    color: white;
+.home-page {
+    padding-bottom: 50px;
 }
 
-.icon {
-    height: 40px;
-    margin: 10px;
-}
 .navbar-brand {
     position: absolute;
     padding: 5px;
@@ -40,32 +35,29 @@ footer a {
     color:#ffffff;
 }
 
-.navbar button, .navbar button:focus {
+.navbar button {
     margin: 0 10px 0 0;
     color: white;
     background-color: transparent;
     border: 2px solid white;
-    transition: .25s;
 }
 
 .navbar button:hover {
-    color: black;
-    background-color: white;
+    transition: .2s;
+    color: white;
+    background-color: transparent;
     border: 2px solid white;
-    transition: .25s;
 }
+
 
 .special-text {
     color: #fff6c4;
     /* font-size: 20px; */
 }
 
-section {
-    padding: 75px 0;
-}
-section:nth-child(even) {
+.dark {
     color: white;
-    background-color:rgb(52,0,13);
+    background-color:rgba(52,0,13,.5);
 }
 
 .dark-image {
@@ -105,11 +97,11 @@ section:nth-child(even) {
 }
 
 .info-container { 
+    padding: 50px 50px;
     max-width: 1050px;
 }
 
 .info-container h2 {
-    text-align: center;
     padding-bottom: 50px; 
 }
 
@@ -121,7 +113,7 @@ section:nth-child(even) {
 }
 
 .jumbo-container h1 {
-    font-size: 48pt;
+    /* font-size: 64pt; */
 }
 
 .jumbo-container button {
@@ -130,21 +122,11 @@ section:nth-child(even) {
     padding: 10px 20px;
     background-color: Transparent;
     border: 2px solid white;
-    transition: 0.25s;
-}
-
-.jumbo-container button:hover {
-    color: black;
-    background-color: white;
-    transition: .25s ease-in-out;
-}
-
-.jumbo-container a:hover {
-    color: white;
 }
 
 .bot-buffer { margin-bottom: 30px; }
 
+/* Game Page */
 /* Featured Events */
 
 .event-list {
@@ -180,6 +162,28 @@ section:nth-child(even) {
 .event-list > li > .time > span {
     display: none;
 }
+/* .event-list > li > time > .date {
+    display: block;
+    font-size: 12pt;
+    font-weight: 600;
+    line-height: 1;
+    padding: 5px;
+}
+.event-list > li time > .time {
+    display: block;
+    font-size: 12pt;
+    font-weight: 300;
+    line-height: 1;
+    padding: 5px;
+}
+
+.event-list > li time > .location {
+    display: block;
+    font-size: 12pt;
+    font-weight: 300;
+    line-height: 1;
+    padding: 5px;
+} */
 
 .event-list > li > img {
     width: 100%;
@@ -198,7 +202,8 @@ section:nth-child(even) {
     font-weight: 300;
     margin: 0px;
 }
-.event-list > li > .info > ul {
+.event-list > li > .info > ul,
+.event-list > li > .social > ul {
     display: table;
     list-style: none;
     margin: 10px 0px 0px;
@@ -206,66 +211,111 @@ section:nth-child(even) {
     width: 100%;
     text-align: center;
 }
-
-.event-list > li {
-    border: 2px solid white;
-    position: relative;
+.event-list > li > .social > ul {
+    margin: 0px;
+}
+.event-list > li > .info > ul > li,
+.event-list > li > .social > ul > li {
+    display: table-cell;
+    cursor: pointer;
+    color: white;
+    font-size: 11pt;
+    font-weight: 300;
+    padding: 3px 0px;
+}
+.event-list > li > .info > ul > li > a {
     display: block;
     width: 100%;
-    height: 124px;
+    color: white;
+    text-decoration: none;
+} 
+.event-list > li > .social > ul > li {    
     padding: 0px;
 }
-.event-list > li > .time,
-.event-list > li > img  {
-    display: inline-block;
-    overflow: hidden;
-}
+.event-list > li > .social > ul > li > a {
+    padding: 3px 0px;
+} 
 
-.event-list > li > .time > p,
-.event-list > li > img  {
-    margin: 3px;
-}
-
-.event-list > li > .time,
-.event-list > li > img {
-    width: 120px;
-    float: left;
-}
-.event-list > li > .info {
-    overflow: hidden;
-}
-.event-list > li > .time,
-.event-list > li > img {
-    width: 120px;
-    height: 120px;
-    padding: 0px;
-    margin: 0px;
-    padding: 2px;
+.event-list > li > .info > ul > li,
+.event-list > li > .social > ul > li {
     border: 1px solid white;
 }
-.event-list > li > .info {
-    position: relative;
-    height: 120px;
-    text-align: left;
-    padding-right: 10px;
-}	
-.event-list > li > .info > .title, 
-.event-list > li > .info > .desc {
-    padding: 0px 10px;
-}
-.event-list > li > .info > ul {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
+
+.event-list > li > .info > ul > li:hover,
+.event-list > li > .social > ul > li:hover {
+    color: rgb(30, 30, 30);
+    background-color: rgb(200, 200, 200);
 }
 
-/* Sponsors */
+@media (min-width: 768px) {
+    .event-list > li {
+        border: 2px solid white;
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 124px;
+        padding: 0px;
+    }
+    .event-list > li > .time,
+    .event-list > li > img  {
+        display: inline-block;
+        overflow: hidden;
+    }
 
-.sponsor {
-    display: inline-block;
-}
+    .event-list > li > .time > p,
+    .event-list > li > img  {
+        margin: 3px;
+    }
 
-.sponsor-image {
-    height: 250px;
-    padding: 30px;
+    .event-list > li > .time,
+    .event-list > li > img {
+        width: 120px;
+        float: left;
+    }
+    .event-list > li > .info {
+        overflow: hidden;
+    }
+    .event-list > li > .time,
+    .event-list > li > img {
+        width: 120px;
+        height: 120px;
+        padding: 0px;
+        margin: 0px;
+        padding: 2px;
+        border: 1px solid white;
+    }
+    .event-list > li > .info {
+        position: relative;
+        height: 120px;
+        text-align: left;
+        padding-right: 10px;
+    }	
+    .event-list > li > .info > .title, 
+    .event-list > li > .info > .desc {
+        padding: 0px 10px;
+    }
+    .event-list > li > .info > ul {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+    }
+    .event-list > li > .social {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        display: block;
+        width: 40px;
+    }
+    .event-list > li > .social > ul {
+        border-left: 1px solid rgb(230, 230, 230);
+    }
+    .event-list > li > .social > ul > li {			
+        display: block;
+        padding: 0px;
+    }
+    .event-list > li > .social > ul > li > a {
+        display: block;
+        width: 40px;
+        padding: 10px 0px 9px;
+    }
 }

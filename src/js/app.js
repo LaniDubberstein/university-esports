@@ -9,23 +9,24 @@ import 'angular-ui-router';
 import './config/app.templates';
 // Import our app functionaity
 import './layout';
-import './services';
+import './components';
 import './home';
+import './services';
 import './dota';
 import './hots';
 import './hs';
 import './lol';
 import './ow';
 import './rl';
-import './services';
 
 // Create and bootstrap application
 const requires = [
   'ui.router',
   'templates',
   'app.layout',
-  'app.services',
+  'app.components',
   'app.home',
+  'app.services',
   'app.dota',
   'app.hots',
   'app.hs',

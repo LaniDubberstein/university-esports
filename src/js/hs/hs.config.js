@@ -6,7 +6,7 @@ function HsConfig($stateProvider) {
     url: '/',
     controller: 'HsCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'game.html',
+    templateUrl: 'hs/hs.html',
     title: 'Hs'
   });
 

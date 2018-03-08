@@ -6,7 +6,7 @@ function RlConfig($stateProvider) {
     url: '/',
     controller: 'RlCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'game.html',
+    templateUrl: 'rl/rl.html',
     title: 'Rl'
   });
 

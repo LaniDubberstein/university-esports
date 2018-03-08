@@ -6,7 +6,7 @@ function HotsConfig($stateProvider) {
     url: '/',
     controller: 'HotsCtrl',
     controllerAs: '$ctrl',
-    templateUrl: 'game.html',
+    templateUrl: 'hots/hots.html',
     title: 'Hots'
   });
 

@@ -1,37 +1,25 @@
 class OwCtrl {
-  constructor(Schedule, AppConstants, $scope) {
+  constructor(User, Tags, AppConstants, $scope) {
     'ngInject';
 
-    this.schedule = Schedule;
     this.appName = AppConstants.appName;
     this._$scope = $scope;
 
-    this.gameTitle = "OVERWATCH";
-    this.game = "ow";
+    // Set current list to either feed or all, depending on auth status.
+    this.listConfig = {
+      type: User.current ? 'feed' : 'all'
+    };
 
-    // =======================================================================
-    // ==   BELOW IS INFORMATION YOU CAN EDIT                               ==
-    // ==   SECTIONS THAT ARE COMMENTED OUT WILL NOT SHOW UP ON THE PAGE    ==
-    // =======================================================================
-
-    /* SOCIAL MEDIA */
-    // this.website = "https://gopherlink.umn.edu/organization/udota";
-    // this.facebook = "http://www.facebook.com";
-    // this.email = "mailto:example@gmail.com";
-
-    /* ABOUT SECTION */
     // this.about = "Ow club information.  Ow club information.  Ow club information.  Ow club information.  Ow club information. "
     //   + "Ow club information.  Ow club information.  Ow club information.  Ow club information.  Ow club information."
     //   + "Ow club information.  Ow club information.  Ow club information.  Ow club information.  Ow club information."
     //   + "Ow club information.  Ow club information.  Ow club information.  Ow club information.  Ow club information."
 
-    /* ABOUT COMPETITIVE SECTION */
     // this.aboutCompetitive = "Ow club competitive team information. Ow club competitive team information. Ow club competitive team information."
     //   + "Ow club competitive team information. Ow club competitive team information. Ow club competitive team information."
     //   + "Ow club competitive team information. Ow club competitive team information. Ow club competitive team information."
     //   + "Ow club competitive team information. Ow club competitive team information. Ow club competitive team information."
 
-    /* TEAMS SECTION */
     this.teams = [
       {
         "label": "Overwatch Competitive Team",
@@ -78,7 +66,18 @@ class OwCtrl {
       }
     ]
 
-    /* NEWS SECTION */
+    this.events = [
+      {
+        "label": "Overwatch",
+        "date": "Nov 16 2017",
+        "time": "",
+        "location": "Cofman Memorial Union rm 324",
+        "imgPath": "images/ow_logo.png",
+        "description": "",
+        "signupLink": ""
+       }
+    ]
+
     // this.news = [
     //   {
     //     "description": "Description of [Ow] news. News news news news news news news news news news news.",
@@ -94,60 +93,12 @@ class OwCtrl {
     //   }
     // ]
 
-    /* OFFICERS SECTION */
-    // this.officers = [
-    //   {
-    //     "label": "Dota Club Officers",
-    //     "teammates": [
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       },
-    //       {
-    //         "role": "President",
-    //         "name": "TBD",
-    //         "imgPath": "http://placehold.it/200x200"
-    //       }
-    //     ]
-    //   }
-    // ]
-
-    /* SPONSORS SECTION */
-    // this.sponsors = [
-    //   {
-    //     "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/Riot_Games_logo.png",
-    //     "link": "https://www.riotgames.com/"
-    //   },
-    //   {
-    //     "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/Riot_Games_logo.png",
-    //     "link": "https://www.riotgames.com/"
-    //   },      {
-    //     "logo": "https://upload.wikimedia.org/wikipedia/en/4/47/Riot_Games_logo.png",
-    //     "link": "https://www.riotgames.com/"
-    //   }
-    // ]
   }
+
+  changeList(newList) {
+    this._$scope.$broadcast('setListTo', newList);
+  }
+
 }
 
 export default OwCtrl;

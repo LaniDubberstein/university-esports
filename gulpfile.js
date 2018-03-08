@@ -16,6 +16,7 @@ var deploy        = require('gulp-gh-pages');
 var jsFiles   = "src/js/**/*.js";
 var viewFiles = "src/js/**/*.html";
 var imgFiles = "src/images/*";
+var cnameFile = "src/CNAME";
 
 var interceptErrors = function(error) {
   var args = Array.prototype.slice.call(arguments);
@@ -64,6 +65,12 @@ gulp.task('views', function() {
       .pipe(gulp.dest('./src/js/config/'));
 });
 
+gulp.task('cname', function() {
+  return gulp.src('src/CNAME')
+      .on('error', interceptErrors)
+      .pipe(gulp.dest('./build/'));
+})
+
 gulp.task('images', function() {
   return gulp.src(imgFiles)
     .pipe(imagemin())
@@ -72,7 +79,7 @@ gulp.task('images', function() {
 
 // This task is used for building production ready
 // minified JS/CSS files into the dist/ folder
-gulp.task('build', ['html', 'browserify', 'css', 'images'], function() {
+gulp.task('build', ['html', 'browserify', 'css', 'images', 'cname'], function() {
   var html = gulp.src("build/index.html")
                  .pipe(gulp.dest('./dist/'));
 
@@ -83,18 +90,22 @@ gulp.task('build', ['html', 'browserify', 'css', 'images'], function() {
   var css = gulp.src("build/main.css")
               .pipe(gulp.dest('./dist/'));
 
+  var cname = gulp.src("build/CNAME")
+              .pipe(gulp.dest('./dist/'));
+
   var img = gulp.src(imgFiles)
               .pipe(imagemin())
               .pipe(gulp.dest('./dist/images'))
-  return merge(html, js, css, img);
+
+  return merge(html, js, css, cname, img);
 });
 
-gulp.task('deploy', ['html', 'css', 'browserify', 'images','build'], function () {
+gulp.task('deploy', ['html', 'css', 'browserify', 'images', 'cname', 'build'], function () {
   return gulp.src("./dist/**/*")
     .pipe(deploy())
 });
 
-gulp.task('default', ['html', 'css', 'browserify', 'images'], function() {
+gulp.task('default', ['html', 'css', 'browserify', 'images', 'cname'], function() {
 
   browserSync.init(['./build/**/**.**'], {
     server: "./build",
@@ -110,4 +121,5 @@ gulp.task('default', ['html', 'css', 'browserify', 'images'], function() {
   gulp.watch(viewFiles, ['views']);
   gulp.watch(jsFiles, ['browserify']);
   gulp.watch(imgFiles, ['images']);
+  gulp.watch(cnameFile, ['cname']);
 });

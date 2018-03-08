@@ -7,6 +7,7 @@ let owModule = angular.module('app.ow', []);
 import OwConfig from './ow.config';
 owModule.config(OwConfig);
 
+
 // Controllers
 import OwCtrl from './ow.controller';
 owModule.controller('OwCtrl', OwCtrl);

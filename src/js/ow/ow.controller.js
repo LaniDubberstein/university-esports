@@ -26,33 +26,33 @@ class OwCtrl {
         "description": "Team to be determined through tryouts.",
         "teammates": [
           {
-            "role": "",
+            "role": "DPS/Flex",
+            "name": "Julian Kinneavy",
+            "imgPath": "images/Guku.jpg"
+          },
+          {
+            "role": "Support/Tank Flex",
+            "name": "James Han",
+            "imgPath": "images/Exio.jpg"
+          },
+          {
+            "role": "Tank",
+            "name": "Pankeel Shah",
+            "imgPath": "images/Blue.jpg"
+          },
+          {
+            "role": "Tank",
             "name": "TBD",
             "imgPath": "http://placehold.it/200x200"
           },
           {
-            "role": "",
-            "name": "TBD",
+            "role": "DPS",
+            "name": "Elliot Carpenter",
             "imgPath": "http://placehold.it/200x200"
           },
           {
-            "role": "",
-            "name": "TBD",
-            "imgPath": "http://placehold.it/200x200"
-          },
-          {
-            "role": "",
-            "name": "TBD",
-            "imgPath": "http://placehold.it/200x200"
-          },
-          {
-            "role": "",
-            "name": "TBD",
-            "imgPath": "http://placehold.it/200x200"
-          },
-          {
-            "role": "",
-            "name": "TBD",
+            "role": "Support",
+            "name": "Andy Groth",
             "imgPath": "http://placehold.it/200x200"
           }
         ],

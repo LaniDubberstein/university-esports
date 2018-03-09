@@ -99,6 +99,15 @@ class HomeCtrl {
         "imgPath": "images/hs_logo.png",
         "description": "",
         "signupLink": ""
+      },
+      {
+        "label": "March Mayhem",
+        "date": "March 23 2018",
+        "time": "7 PM - 10 PM",
+        "location": "Robert Bruininks Hall",
+        "imgPath": "images/March_Mayhem.jpg",
+        "description": "",
+        "signupLink": ""
       }   
     ]
 
@@ -110,17 +119,17 @@ class HomeCtrl {
           {
             "role": "President",
             "name": "Evan Christenson",
-            "imgPath": "http://placehold.it/200x200"
+            "imgPath": "images/Evan_front.png"
           },
           {
             "role": "Vice President",
             "name": "David Moline",
-            "imgPath": "http://placehold.it/200x200"
+            "imgPath": "images/David_V.jpg"
           },
           {
             "role": "Marketing",
             "name": "David Mo",
-            "imgPath": "http://placehold.it/200x200"
+            "imgPath": "Images/David_Mo.jpg"
           }
         ]
       }
